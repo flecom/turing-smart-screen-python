@@ -481,9 +481,9 @@ class Net(sensors.Net):
             if if_name != "":
                 if if_name in pnic_after:
                     try:
-                        upload_rate = (pnic_after[if_name].bytes_sent - PNIC_BEFORE[if_name].bytes_sent) / interval
+                        upload_rate = 8*(pnic_after[if_name].bytes_sent - PNIC_BEFORE[if_name].bytes_sent) / interval
                         uploaded = pnic_after[if_name].bytes_sent
-                        download_rate = (pnic_after[if_name].bytes_recv - PNIC_BEFORE[if_name].bytes_recv) / interval
+                        download_rate = 8*(pnic_after[if_name].bytes_recv - PNIC_BEFORE[if_name].bytes_recv) / interval
                         downloaded = pnic_after[if_name].bytes_recv
                     except:
                         # Interface might not be in PNIC_BEFORE for now
